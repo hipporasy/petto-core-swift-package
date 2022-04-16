@@ -1,0 +1,6 @@
+framework module PettoCore {
+    umbrella header "PettoCore.h"
+
+    export *
+    module * { export * }
+}
