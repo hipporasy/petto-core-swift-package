@@ -1,0 +1,19 @@
+name: Create Tag
+
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Access tag name of current workflow
+      run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+    - uses: actions/checkout@v2
+    - uses: Klemensas/action-autotag@stable
+      with:
+        tag_name: ${{ env.TAG }}
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
