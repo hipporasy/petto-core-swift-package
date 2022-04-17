@@ -16,4 +16,4 @@ jobs:
     - uses: Klemensas/action-autotag@stable
       with:
         tag_name: ${{ env.TAG }}
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        GITHUB_TOKEN: "${{ secrets.API_TOKEN_GITHUB }}"
